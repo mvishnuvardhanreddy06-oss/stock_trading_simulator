@@ -23,7 +23,7 @@ config();
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 const app = exp();
-const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173,http://localhost:5174,http://localhost:5175")
+const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173,http://localhost:5174,http://localhost:5175,https://stock-trading-simulator-bk46z51v.vercel.app")
   .split(",")
   .map((origin) => origin.trim());
 
