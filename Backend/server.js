@@ -33,29 +33,14 @@ function isPrivateNetworkViteOrigin(origin = "") {
 
 app.use(
   cors({
-    origin(origin, callback) {
-      if (!origin) {
-        callback(null, true);
-        return;
-      }
-
-      const normalizedOrigin = origin.trim();
-      if (process.env.NODE_ENV === "production") {
-        callback(null, true);
-        return;
-      }
-
-      if (allowedOrigins.includes(normalizedOrigin) || isPrivateNetworkViteOrigin(normalizedOrigin)) {
-        callback(null, true);
-        return;
-      }
-
-      callback(new Error(`CORS blocked origin: ${origin}`));
-    },
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    credentials: true
+    origin: true,
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
+    credentials: true,
+    optionsSuccessStatus: 204
   })
 );
+
+app.options("*", cors({ origin: true, credentials: true }));
 
 app.use(cookieParser());
 app.use(exp.json());
