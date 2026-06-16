@@ -1,8 +1,13 @@
 const API_PORT = import.meta.env.VITE_API_PORT || "5002";
+const FALLBACK_API_URL = "https://stock-trading-simulator-1-675p.onrender.com/api";
 
 function resolveApiUrl() {
   if (import.meta.env.VITE_API_URL) {
     return import.meta.env.VITE_API_URL;
+  }
+
+  if (window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
+    return FALLBACK_API_URL;
   }
 
   const host = window.location.hostname;
