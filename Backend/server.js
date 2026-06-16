@@ -40,19 +40,19 @@ app.use(
       }
 
       const normalizedOrigin = origin.trim();
-      if (allowedOrigins.includes(normalizedOrigin) || isPrivateNetworkViteOrigin(normalizedOrigin)) {
+      if (process.env.NODE_ENV === "production") {
         callback(null, true);
         return;
       }
 
-      if (process.env.NODE_ENV === "production") {
+      if (allowedOrigins.includes(normalizedOrigin) || isPrivateNetworkViteOrigin(normalizedOrigin)) {
         callback(null, true);
         return;
       }
 
       callback(new Error(`CORS blocked origin: ${origin}`));
     },
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     credentials: true
   })
 );
