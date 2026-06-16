@@ -34,7 +34,18 @@ function isPrivateNetworkViteOrigin(origin = "") {
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin) || isPrivateNetworkViteOrigin(origin)) {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      const normalizedOrigin = origin.trim();
+      if (allowedOrigins.includes(normalizedOrigin) || isPrivateNetworkViteOrigin(normalizedOrigin)) {
+        callback(null, true);
+        return;
+      }
+
+      if (process.env.NODE_ENV === "production") {
         callback(null, true);
         return;
       }
