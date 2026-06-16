@@ -1,0 +1,12 @@
+{
+  "name": "stock-trading-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix Backend\" \"npm run dev --prefix Frontend\"",
+    "install-all": "npm install && npm install --prefix Backend && npm install --prefix Frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

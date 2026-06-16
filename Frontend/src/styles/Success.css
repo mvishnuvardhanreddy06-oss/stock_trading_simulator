@@ -1,0 +1,249 @@
+/* Success Page Styles */
+.success-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.success-card {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 50px 40px;
+  text-align: center;
+  position: relative;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-animation {
+  margin-bottom: 30px;
+}
+
+.check-icon {
+  color: #059669;
+  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  filter: drop-shadow(0 0 10px rgba(5, 150, 105, 0.3));
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-content {
+  margin-bottom: 30px;
+}
+
+.success-content h1 {
+  font-size: 28px;
+  color: #1f2937;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.success-message {
+  color: #059669;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.6;
+}
+
+.success-subtext {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.success-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.feature {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: slideUp 0.5s ease-out;
+}
+
+.feature:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.feature:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.feature-icon {
+  font-size: 24px;
+}
+
+.feature p {
+  font-size: 12px;
+  color: #047857;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.return-button {
+  width: 100%;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  margin-bottom: 15px;
+}
+
+.return-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.return-button:active {
+  transform: translateY(0);
+}
+
+.auto-redirect-text {
+  color: #9ca3af;
+  font-size: 12px;
+  margin: 0;
+  animation: fadeInOut 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .success-card {
+    padding: 40px 20px;
+    border-radius: 12px;
+  }
+
+  .success-content h1 {
+    font-size: 24px;
+  }
+
+  .success-features {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .feature {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .feature-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .feature p {
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .return-button {
+    min-height: 44px;
+    font-size: 15px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .success-card {
+    background: #1f2937;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  }
+
+  .success-content h1 {
+    color: #f3f4f6;
+  }
+
+  .success-message {
+    color: #6ee7b7;
+  }
+
+  .success-subtext {
+    color: #9ca3af;
+  }
+
+  .feature {
+    background: #064e3b;
+    border-color: #10b981;
+  }
+
+  .feature p {
+    color: #d1fae5;
+  }
+
+  .auto-redirect-text {
+    color: #6b7280;
+  }
+}
+
+/* Animation for confetti effect (optional) */
+@keyframes confetti {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotateZ(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px) rotateZ(360deg);
+  }
+}

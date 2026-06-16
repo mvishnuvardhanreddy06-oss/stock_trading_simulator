@@ -1,0 +1,8 @@
+POST http://localhost:5001/api/orders
+Content-Type: application/json
+
+{
+  "side": "BUY",
+  "symbol": "AAPL",
+  "quantity": 1
+}
