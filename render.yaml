@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: stock-trading-backend
+    env: node
+    branch: main
+    plan: free
+    region: oregon
+    buildCommand: "cd Backend && npm install"
+    startCommand: "cd Backend && npm start"
+    disk: 512
+    # Do NOT store secrets here. Set DB_URL, EMAIL_USER, EMAIL_PASSWORD, CLIENT_URL, and PORT
+    # in the Render dashboard or use Render's Secrets feature.
